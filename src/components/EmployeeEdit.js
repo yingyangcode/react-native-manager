@@ -27,6 +27,8 @@ class EmployeeEdit extends Component {
 
     onButtonPress(){
         const { name, phone, shift } = this.props;
+
+
         this.props.employeeSave({ name, phone, shift, uid: this.props.employee.uid });
     }
     onTextPress(){
@@ -78,7 +80,7 @@ const mapStateToProps = (state) => {
     const { name, phone, shift } = state.employeeForm;
     return { name, phone, shift };
 };
-export default connect(null, { 
+export default connect(mapStateToProps, { 
     employeeUpdate,
     employeeSave,
     employeeDelete 

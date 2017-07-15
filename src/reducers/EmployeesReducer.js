@@ -7,8 +7,8 @@ const INITIAL_STATE = {};
 export default (state=INITIAL_STATE, action) => {
     switch(action.type){
         case EMPLOYEES_FETCH_SUCCESS:
-            console.log('Employees Reducer Action:'+action);
-            return action.payload;
+             return action.payload;
+            //return { ...state, [id]: action.payload };
         default:
             return state;
     }

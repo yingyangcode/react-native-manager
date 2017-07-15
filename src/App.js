@@ -6,6 +6,7 @@ import reducers from './reducers';
 import firebase from 'firebase';
 import Router from './Router';
 class App extends Component{
+     store = createStore(reducers, {}, applyMiddleware(ReduxThunk));
     componentWillMount(){
         const config = {
             apiKey: 'AIzaSyAsGveY8GUBx6kVG89mFLprHz70dcaXEXA',
@@ -18,10 +19,10 @@ class App extends Component{
         firebase.initializeApp(config);
     }
     render(){
-        const store = createStore(reducers, {}, applyMiddleware(ReduxThunk));
+        
         
         return(
-            <Provider store={store}>
+            <Provider store={this.store}>
                 <Router />
             </Provider>
         );

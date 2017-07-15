@@ -10,8 +10,7 @@ const INITIAL_STATE = {
     shift: ''
 };
 
-export default (state = INITIAL_STATE, action) => {
-    console.log(action);
+export default (state = INITIAL_STATE, action) => {    
     switch(action.type){
         case EMPLOYEE_UPDATE:
             //action.payload === {prop: 'name', value: 'Jane'}

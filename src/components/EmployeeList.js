@@ -19,9 +19,7 @@ class EmployeeList extends Component {
         */
         this.props.employeesFetch();
         this.createDataSource(this.props);
-        console.log('compWillMount');
-        console.log('compWillMount: '+this.dataSource );
-
+   
 
 
     }
@@ -34,8 +32,6 @@ class EmployeeList extends Component {
          * If user navigatest to employee create and comes back this function runs
          */
         this.createDataSource(nextProps); 
-        console.log('compWillReceiveProps');
-        console.log('compWillReceiveProps: '+this.dataSource );
     }
 
     createDataSource({ employees }){
@@ -48,14 +44,12 @@ class EmployeeList extends Component {
         //mapStateToProps and comp gets some new no. of props
         //so this.props.employees will eventually have value
         //can get handle on that value with componentWillReceiveProps
-        this.dataSource = ds.cloneWithRows(this.props.employees);
+        this.dataSource = ds.cloneWithRows(employees);
         //cloneWithRows can only deal with arrays and not object
         //so we have to convert obj to arr
-        console.log('createDataSource: '+ {employees});
     }
 
     renderRow(employee){
-        console.log('renderRow: '+ employee);
         return(
             <ListItem employee={employee}/>
         );
@@ -77,7 +71,6 @@ const mapStateToProps = (state) => {
         return { ...val, uid }; // { shift:'Monday', name:'S', id:''12j3j}
         //map puts this obj into employees array
     });
-    console.log('MapStateToProps: '+ employees);
     return { employees };
 };
 
